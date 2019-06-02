@@ -1,22 +1,20 @@
 <template>
-  <div class="options">
-    <h2>Options</h2>
-    <h3>Strings</h3>
-    <template v-for="string in stringOptions">
-      <input
-        type="checkbox"
-        :id="`string-${string}`"
-        :value="string"
-        v-model="strings"
-        v-bind:key="`checkbox-string-${string}`"
-      >
-      <label
-        :for="`string-${string}`"
-        v-bind:key="`label-string-${string}`"
-      >
-        {{ string }}
-      </label>
-    </template>
+  <div class="card">
+    <div class="card-header">
+      <p class="card-header-title is-centered">Options</p>
+    </div>
+    <div class="card-content">
+      <div class="field">
+        <label class="label">Strings (space separated)</label>
+        <div class="control">
+          <input
+            class="input"
+            type="text"
+            v-model="strings"
+          >
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -24,25 +22,13 @@
 export default {
   data() {
     return {
-      strings: [
-        'E',
-        'A',
-        'D',
-        'G',
-        'B',
-      ],
-      stringOptions: [
-        'E',
-        'A',
-        'D',
-        'G',
-        'B',
-      ],
+      strings: 'E A D G D'
     };
   },
   watch: {
     strings(val) {
-      this.$emit('update:strings', val);
+      const newStrings = val.split(" ").map((str) => str.replace(/\s/g, ""));
+      this.$emit('update:strings', newStrings);
     },
   },
 };

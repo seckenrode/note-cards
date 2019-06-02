@@ -1,14 +1,21 @@
 <template>
-  <div id='app'>
-    <h1>Note Cards</h1>
-    <NoteCard
-      :card="currentCard"
-      @correct="onCorrectAnswer"
-      @incorrect="onIncorrectAnswer"
-    />
-    <Statistics :statistics="statistics" />
-    <Options :strings.sync="strings" />
-  </div>
+  <section class="note-cards section is-medium">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-three-quarters">
+          <NoteCard
+            :card="currentCard"
+            @correct="onCorrectAnswer"
+            @incorrect="onIncorrectAnswer"
+          />
+        </div>
+        <div class="column">
+          <Statistics :statistics="statistics" />
+          <Options :strings.sync="strings" />
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -76,5 +83,20 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+@import url('https://fonts.googleapis.com/css?family=Questrial&display=swap');
+$family-primary: 'Questrial', sans-serif;
+@import "../node_modules/bulma/bulma";
+
+.note-cards {
+  padding-top: 1.5rem;
+
+  .card {
+    border-radius: 20px;
+
+    .card-header {
+      border-radius: 20px 20px 0 0;
+    }
+  }
+}
 </style>
