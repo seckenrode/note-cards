@@ -86,6 +86,9 @@ export default {
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css?family=Questrial&display=swap');
 $family-primary: 'Questrial', sans-serif;
+$seafoam: hsl(174, 62%, 47%);
+$orange: hsl(35, 100%, 55%);
+$primary: $seafoam;
 @import "../node_modules/bulma/bulma";
 
 .note-cards {
